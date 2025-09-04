@@ -1,30 +1,38 @@
-const pool = require("../config/database");
+const db = require('../config/database');
 
-const getUsuarios = async () => {
-    const result = await pool.query(
-        `SELECT usuarios.*, receitas.nome_receita AS nome_receita
-         FROM usuarios 
-         LEFT JOIN receitas ON usuarios.receita_id = receitas.id`
-    );
-    return result.rows;
+const getAllUsuarios = async () => {
+    try {
+        const result = await db.query('SELECT * FROM usuarios');
+        return result.rows;
+    } catch (error) {
+        throw error;
+    }
 };
 
 const getUsuarioById = async (id) => {
-    const result = await pool.query(
-        `SELECT usuarios.*, receitas.nome_receita AS nome_receita
-         FROM usuarios 
-         LEFT JOIN receitas ON usuarios.receita_id = receitas.id 
-         WHERE usuarios.id = $1`, [id]
-    );
-    return result.rows[0];
+    try {
+        const result = await db.query('SELECT * FROM usuarios WHERE id = $1', [id]);
+        return result.rows[0];
+    } catch (error) {
+        throw error;
+    }
 };
 
-const createUsuario = async (nome_receita, receita_id) => {
-    const result = await pool.query(
-        "INSERT INTO usuarios (nome_receita, receita_id) VALUES ($1, $2) RETURNING *",
-        [nome_receita, receita_id]
-    );
-    return result.rows[0];
+const createUsuario = async (userData) => {
+    try {
+        const { nome, email, senha } = userData;
+        const result = await db.query(
+            'INSERT INTO usuarios (nome, email, senha) VALUES ($1, $2, $3) RETURNING *',
+            [nome, email, senha]
+        );
+        return result.rows[0];
+    } catch (error) {
+        throw error;
+    }
 };
 
-module.exports = { getUsuarios, getUsuarioById, createUsuario };
+module.exports = {
+    getAllUsuarios,
+    getUsuarioById,
+    createUsuario
+};
