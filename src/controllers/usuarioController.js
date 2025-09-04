@@ -31,8 +31,36 @@ const createUsuario = async (req, res) => {
     }
 };
 
+const updateUsuario = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const usuarioAtualizado = await usuarioModel.updateUsuario(id, req.body);
+        if (!usuarioAtualizado) {
+            return res.status(404).json({ error: 'Usuário não encontrado' });
+        }
+        res.status(200).json(usuarioAtualizado);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
+const deleteUsuario = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const usuarioDeletado = await usuarioModel.deleteUsuario(id);
+        if (!usuarioDeletado) {
+            return res.status(404).json({ error: 'Usuário não encontrado' });
+        }
+        res.status(200).json({ message: 'Usuário deletado com sucesso', usuario: usuarioDeletado });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
+
 module.exports = {
     getAllUsuarios,
     getUsuario,
-    createUsuario
+    createUsuario,
+    updateUsuario,
+    deleteUsuario
 };

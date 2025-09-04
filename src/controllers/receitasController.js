@@ -2,7 +2,7 @@ const receitaModel = require("../models/receitaModel");
 
 const getAllReceitas = async (req, res) => {
     try {
-        const receitas = await houseModel.getReceitas();
+        const receitas = await receitaModel.getReceitas();
         res.json(receitas);
     } catch (error) {
         res.status(500).json({ message: "Erro ao buscar receitas." });

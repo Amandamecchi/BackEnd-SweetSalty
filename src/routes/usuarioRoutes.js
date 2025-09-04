@@ -3,7 +3,9 @@ const router = express.Router();
 const usuarioController = require("../controllers/usuarioController");
 
 router.get("/", usuarioController.getAllUsuarios);
-router.get("/:id", usuarioController.getUsuario); // Corrigido: usuarioController em vez de usuariosController
+router.get("/:id", usuarioController.getUsuario);
 router.post("/", usuarioController.createUsuario);
+router.put("/:id", usuarioController.updateUsuario);
+router.delete("/:id", usuarioController.deleteUsuario);
 
 module.exports = router;
