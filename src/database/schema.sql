@@ -1,3 +1,6 @@
+CREATE DATABASE receitas_db;
+\c receitas_db;
+
 CREATE TABLE receitas (
     id SERIAL PRIMARY KEY,
     nome_receita VARCHAR(255) NOT NULL,
@@ -37,3 +40,18 @@ VALUES (
     NOW(),
     FALSE
 );
+
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    nome_usuario VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO usuarios (nome_usuario, email, senha, data_criacao)
+VALUES 
+    ('João Silva', 'joao.silva@example.com', 'senha123', NOW()),
+    ('Maria Oliveira', 'maria.oliveira@example.com', 'senha456', NOW()),
+    ('Carlos Santos', 'carlos.santos@example.com', 'senha789', NOW());
+
+
