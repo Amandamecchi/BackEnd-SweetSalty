@@ -23,8 +23,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 Servidor rodando na porta ${PORT}`);
     console.log(`📡 API disponível em: http://localhost:${PORT}`);
-    console.log(`🍰 Receitas: http://localhost:${PORT}/api/receitas`);
-    console.log(`👥 Usuários: http://localhost:${PORT}/api/usuarios`);
 });
