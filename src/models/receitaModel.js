@@ -5,6 +5,11 @@ const getReceitas = async () => {
     return result.rows;
 };
 
+const getReceitasPopulares = async (limite = 6) => {
+    const result = await pool.query("SELECT * FROM receitas WHERE popularidade >= 150 ORDER BY popularidade DESC LIMIT $1", [limite]);
+    return result.rows;
+};
+
 const getReceitaById = async (id) => {
     const result = await pool.query("SELECT * FROM receitas WHERE id = $1", [id]);
     return result.rows[0];
@@ -46,7 +51,8 @@ const deleteReceita = async (id) => {
 };
 
 module.exports = { 
-    getReceitas, 
+    getReceitas,
+    getReceitasPopulares, 
     getReceitaById, 
     createReceita, 
     updateReceita, 

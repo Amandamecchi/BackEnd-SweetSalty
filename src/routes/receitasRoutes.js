@@ -5,6 +5,9 @@ const receitasController = require('../controllers/receitasController');
 // GET /receitas - Buscar todas as receitas
 router.get('/', receitasController.getAllReceitas);
 
+// GET /receitas/populares - Buscar receitas populares
+router.get('/populares', receitasController.getReceitasPopulares);
+
 // GET /receitas/:id - Buscar receita por ID
 router.get('/:id', receitasController.getReceita);
 

@@ -14,6 +14,21 @@ const getAllReceitas = async (req, res) => {
     }
 };
 
+const getReceitasPopulares = async (req, res) => {
+    try {
+        const limite = req.query.limite ? parseInt(req.query.limite) : 6;
+        const receitas = await receitaModel.getReceitasPopulares(limite);
+        // Adicionar URL completa da imagem para cada receita
+        const receitasComImagem = receitas.map(receita => ({
+            ...receita,
+            imagem_url: receita.imagem ? `${req.protocol}://${req.get('host')}/uploads/${receita.imagem}` : null
+        }));
+        res.json(receitasComImagem);
+    } catch (error) {
+        res.status(500).json({ message: "Erro ao buscar receitas populares." });
+    }
+};
+
 const getReceita = async (req, res) => {
     try {
         const receita = await receitaModel.getReceitaById(req.params.id);
@@ -74,7 +89,8 @@ const deleteReceita = async (req, res) => {
 };
 
 module.exports = { 
-    getAllReceitas, 
+    getAllReceitas,
+    getReceitasPopulares, 
     getReceita, 
     createReceita, 
     updateReceita, 
