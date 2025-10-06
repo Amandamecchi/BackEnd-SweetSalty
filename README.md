@@ -6,10 +6,12 @@ API Backend para o projeto Sweet & Salty - Sistema de gerenciamento de receitas 
 
 Este é o backend da aplicação Sweet & Salty, uma API RESTful desenvolvida em Node.js que gerencia receitas culinárias e usuários. A API oferece funcionalidades completas de CRUD (Create, Read, Update, Delete) para receitas e usuários, incluindo sistema de imagens.
 
-## 🔗 Repositórios do Projeto
+## 🔗 Repositórios e Deploy do Projeto
 
-- **Frontend:** [Sweet_Salty](https://github.com/Amandamecchi/Sweet_Salty.git)
-- **Backend:** [BackEnd-SweetSalty](https://github.com/Amandamecchi/BackEnd-SweetSalty.git)
+- **Frontend (Repositório):** [Sweet_Salty](https://github.com/Amandamecchi/Sweet_Salty.git)
+- **Frontend (Deploy):** [🌐 Sweet & Salty - Vercel](https://sweet-salty.vercel.app/home)
+- **Backend (Repositório):** [BackEnd-SweetSalty](https://github.com/Amandamecchi/BackEnd-SweetSalty.git)
+
 
 
 
