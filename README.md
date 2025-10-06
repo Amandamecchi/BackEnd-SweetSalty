@@ -142,12 +142,6 @@ O servidor estará rodando em `http://localhost:3000`
 }
 ```
 
-### 🖼️ Imagens
-
-| Método | Endpoint | Descrição |
-|--------|----------|-----------|
-| GET | `/uploads/:nome_arquivo` | Acessa imagem diretamente |
-
 ## 🗄️ Banco de Dados
 
 ### Tabela: receitas
@@ -185,24 +179,6 @@ O servidor estará rodando em `http://localhost:3000`
 3. **Acessar Imagem:**
    - GET `http://localhost:3000/uploads/bolo-chocolate.jpg`
 
-### Com cURL
-
-```bash
-# Listar receitas
-curl http://localhost:3000/api/receitas
-
-# Criar nova receita
-curl -X POST http://localhost:3000/api/receitas \
-  -H "Content-Type: application/json" \
-  -d '{"nome_receita":"Torta de Maçã","ingredientes":"maçãs, farinha...","modo_preparo":"Misture tudo..."}'
-```
-
-## 🖼️ Sistema de Imagens
-
-1. **Adicionar imagens:** Coloque arquivos de imagem na pasta `uploads/`
-2. **Nomear imagens:** Use nomes descritivos (ex: `bolo-chocolate.jpg`)
-3. **Referenciar:** No campo `imagem` da receita, use apenas o nome do arquivo
-4. **Acessar:** A API retorna `imagem_url` com a URL completa da imagem
 
 ## 🔧 Scripts Disponíveis
 
@@ -228,11 +204,6 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 **Amanda Mecchi**
 - GitHub: [@Amandamecchi](https://github.com/Amandamecchi)
 
-## 🔗 Links Úteis
-
-- [Frontend do Projeto](https://github.com/Amandamecchi/Sweet_Salty.git)
-- [Documentação do Express.js](https://expressjs.com/)
-- [Documentação do PostgreSQL](https://www.postgresql.org/docs/)
 
 ---
 
