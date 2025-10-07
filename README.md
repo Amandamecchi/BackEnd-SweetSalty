@@ -51,7 +51,6 @@ BackEnd-SweetSalty/
 
 ```bash
 git clone https://github.com/Amandamecchi/BackEnd-SweetSalty.git
-cd BackEnd-SweetSalty
 ```
 
 ### 2. Instalar Dependências
@@ -65,11 +64,9 @@ npm install
 1. **Criar banco PostgreSQL:**
    ```sql
    CREATE DATABASE receitas_db;
-   ```
 
-2. **Executar o schema:**
-   ```bash
-   psql -U seu_usuario -d receitas_db -f src/database/schema.sql
+   Adicione a tabela de receitas e a de usuários juntamente com seus respectivos inserts
+   
    ```
 
 ### 4. Configurar Variáveis de Ambiente
@@ -93,11 +90,6 @@ PORT=3000
 **Desenvolvimento:**
 ```bash
 npm run dev
-```
-
-**Produção:**
-```bash
-npm start
 ```
 
 O servidor estará rodando em `http://localhost:3000`
